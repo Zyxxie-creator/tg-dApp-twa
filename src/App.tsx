@@ -4,11 +4,12 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { Counter } from "./components/Counter";
 import { Jetton } from "./components/Jetton";
 import { TransferTon } from "./components/TransferTon";
+import BottomNavigation from "./components/BottomNavigation";
 import styled from "styled-components";
 import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { CHAIN } from "@tonconnect/protocol";
-import LoadingScreen from "./components/LoadingScreen"; 
+import LoadingScreen from "./components/LoadingScreen";
 import "@twa-dev/sdk";
 
 const StyledApp = styled.div`
@@ -20,7 +21,6 @@ const StyledApp = styled.div`
     color: white;
   }
   min-height: 100vh;
-  padding: 20px 20px;
 `;
 
 const AppContainer = styled.div`
@@ -28,21 +28,26 @@ const AppContainer = styled.div`
   margin: 0 auto;
 `;
 
-function App() {
+const App: React.FC = () => {
   const { network } = useTonConnect();
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false); 
+      setIsLoading(false);
     }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
+  const handlePageChange = (pageIndex: number) => {
+    setCurrentPage(pageIndex);
+  };
+
   return (
     <StyledApp>
-      {isLoading ? ( 
+      {isLoading ? (
         <LoadingScreen />
       ) : (
         <AppContainer>
@@ -57,14 +62,15 @@ function App() {
                   : "N/A"}
               </Button>
             </FlexBoxRow>
-            <Counter />
-            <TransferTon />
-            <Jetton />
+            {currentPage === 0 && <Counter />}
+            {currentPage === 1 && <TransferTon />}
+            {currentPage === 2 && <Jetton />}
           </FlexBoxCol>
         </AppContainer>
       )}
+      <BottomNavigation currentPage={currentPage} onPageChange={handlePageChange} />
     </StyledApp>
   );
-}
+};
 
 export default App;
