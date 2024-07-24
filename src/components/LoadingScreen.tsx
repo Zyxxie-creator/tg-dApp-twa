@@ -1,7 +1,7 @@
 // components/LoadingScreen.tsx
 import React from 'react';
 import styled from 'styled-components';
-import loadingImage from '../assets/loadscreen.jpg'; // Импортируем изображение
+import loadingImage from '../assets/loadscreen.jpg';
 
 const LoadingScreenContainer = styled.div`
   position: fixed;
@@ -15,6 +15,8 @@ const LoadingScreenContainer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 20px; // Отступы для мобильных устройств
+  box-sizing: border-box; // Учитываем отступы в ширине и высоте
 `;
 
 const LoadingSpinner = styled.div`
@@ -28,15 +30,17 @@ const LoadingSpinner = styled.div`
 `;
 
 const LoadingImage = styled.img`
-  width: auto; // Ширина изображения
+  max-width: 100%; // Максимальная ширина 100% от родителя
   height: auto; // Автоматическая высота для сохранения пропорций
-  margin: 20px; // Отступ снизу
+  object-fit: contain; // Сохранение пропорций изображения
+  margin-bottom: 20px; // Отступ снизу
 `;
+
 
 const LoadingScreen: React.FC = () => {
   return (
     <LoadingScreenContainer>
-      <LoadingImage src={loadingImage} alt="Загрузка..." /> {/* Добавляем изображение */}
+      <LoadingImage src={loadingImage} alt="Загрузка..." />
       <LoadingSpinner />
       <p>Загрузка...</p>
     </LoadingScreenContainer>
