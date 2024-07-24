@@ -8,11 +8,11 @@ const NavigationContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: #f0f0f0;
-  padding: 15px 0px; 
+  padding: 10px 0px;
   position: fixed;
   bottom: 0;
   width: 100%;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 `;
 
 const NavigationItem = styled.div`
@@ -21,11 +21,7 @@ const NavigationItem = styled.div`
   flex-direction: column;
   align-items: center;
   color: black;
-  flex-grow: 1; 
-
-  &:hover {
-    background-color: #e0e0e0;
-  }
+  flex-grow: 1;
 
   svg {
     margin-bottom: 5px;
@@ -39,17 +35,22 @@ interface BottomNavigationProps {
 }
 
 const BottomNavigation: React.FC<BottomNavigationProps> = ({ currentPage, onPageChange }) => {
+  const handleClick = (pageIndex: number, event: React.MouseEvent) => {
+    onPageChange(pageIndex);
+    (event.currentTarget as HTMLElement).blur();
+  };
+
   return (
     <NavigationContainer>
-      <NavigationItem onClick={() => onPageChange(0)}>
+      <NavigationItem onClick={(event) => handleClick(0, event)}>
         <FontAwesomeIcon icon={faHome} />
         Главная
       </NavigationItem>
-      <NavigationItem onClick={() => onPageChange(1)}>
+      <NavigationItem onClick={(event) => handleClick(1, event)}>
         <FontAwesomeIcon icon={faList} />
         Тест
       </NavigationItem>
-      <NavigationItem onClick={() => onPageChange(2)}>
+      <NavigationItem onClick={(event) => handleClick(2, event)}>
         <FontAwesomeIcon icon={faUsers} />
         Друзья
       </NavigationItem>
