@@ -1737,28 +1737,24 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   justify-content: space-between;
   align-items: center;
   background-color: #f0f0f0;
-  padding: 15px 0px; 
+  padding: 10px 0px;
   position: fixed;
   bottom: 0;
   width: 100%;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 `,L4=_i.div`
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: black;
-  flex-grow: 1; 
-
-  &:hover {
-    background-color: #e0e0e0;
-  }
+  flex-grow: 1;
 
   svg {
     margin-bottom: 5px;
     color: black;
   }
-`,O1e=({currentPage:e,onPageChange:t})=>rn(P1e,{children:[rn(L4,{onClick:()=>t(0),children:[Wt(qc,{icon:T1e}),"Главная"]}),rn(L4,{onClick:()=>t(1),children:[Wt(qc,{icon:B1e}),"Тест"]}),rn(L4,{onClick:()=>t(2),children:[Wt(qc,{icon:R1e}),"Друзья"]})]}),$1e="/tg-dApp-twa/assets/loadscreen-28587867.jpg",U1e=_i.div`
+`,O1e=({currentPage:e,onPageChange:t})=>{const r=(n,a)=>{t(n),a.currentTarget.blur()};return rn(P1e,{children:[rn(L4,{onClick:n=>r(0,n),children:[Wt(qc,{icon:T1e}),"Главная"]}),rn(L4,{onClick:n=>r(1,n),children:[Wt(qc,{icon:B1e}),"Тест"]}),rn(L4,{onClick:n=>r(2,n),children:[Wt(qc,{icon:R1e}),"Друзья"]})]})},$1e="/tg-dApp-twa/assets/loadscreen-28587867.jpg",U1e=_i.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -1788,7 +1784,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 `,j1e=()=>rn(U1e,{children:[Wt(N1e,{src:$1e,alt:"Загрузка..."}),Wt(L1e,{}),Wt("p",{children:"Загрузка..."})]}),D1e=_i.div`
   background-color: #e8e8e8;
   color: black;
-
+  overflow: hidden;
   @media (prefers-color-scheme: dark) {
     background-color: #222;
     color: white;
