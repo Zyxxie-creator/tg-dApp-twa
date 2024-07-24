@@ -15,17 +15,21 @@ const NavigationContainer = styled.div`
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 `;
 
-const NavigationItem = styled.div`
+const NavigationItem = styled.div<{ isActive: boolean }>`
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: black;
+  color: ${(props) => (props.isActive ? 'black' : '#aaa')};
   flex-grow: 1;
+
+  &:hover {
+    background-color: transparent;
+  }
 
   svg {
     margin-bottom: 5px;
-    color: black;
+    color: inherit;
   }
 `;
 
@@ -42,15 +46,15 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ currentPage, onPage
 
   return (
     <NavigationContainer>
-      <NavigationItem onClick={(event) => handleClick(0, event)}>
+      <NavigationItem isActive={currentPage === 0} onClick={(event) => handleClick(0, event)}>
         <FontAwesomeIcon icon={faHome} />
         Главная
       </NavigationItem>
-      <NavigationItem onClick={(event) => handleClick(1, event)}>
+      <NavigationItem isActive={currentPage === 1} onClick={(event) => handleClick(1, event)}>
         <FontAwesomeIcon icon={faList} />
         Тест
       </NavigationItem>
-      <NavigationItem onClick={(event) => handleClick(2, event)}>
+      <NavigationItem isActive={currentPage === 2} onClick={(event) => handleClick(2, event)}>
         <FontAwesomeIcon icon={faUsers} />
         Друзья
       </NavigationItem>
