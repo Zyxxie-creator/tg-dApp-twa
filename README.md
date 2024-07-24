@@ -1,51 +1,36 @@
-# twa-template
+# Smart by Zyxxie
 
-> Starter template for a new TWA interacting with the TON blockchain
+## EN
 
-# Overview
+Smart by Zyxxie is a Telegram bot designed to explore the capabilities and technologies of the Telegram platform. The main goal of this project is to learn and experiment with various Telegram features, such as bots, inline keyboards, and APIs.
 
-The project is highly-opinionated, and there are many other alternate routes it could have taken. Some examples:
+This bot serves as a sandbox for developers to test and implement new ideas, while also providing a user-friendly interface for end-users to interact with the bot's functionalities.
 
-- Supports Ton Connect 2 wallets
-- Uses vite with react (alternative to create-react-app)
-- Uses the `ton` npm package
+### Key features:
 
-# Prerequesities
+- **Modular design**: The bot is built with a modular structure, allowing for easy addition of new features and commands.
+- **User-friendly interface**: The bot provides a clean and intuitive interface for users to interact with its features.
+- **Experimental nature**: As a learning project, Smart by Zyxxie encourages developers to experiment with new ideas and technologies within the Telegram ecosystem.
 
-- Node.js v16 (other versions may work, needs more testing)
-- A TON Connect compatible wallet (e.g. [Tonkeeper](https://tonkeeper.com/))
+### Try the Bot
 
-# What does this repo contain?
+You can interact with the Smart by Zyxxie bot here: [Smart by Zyxxie Bot](https://t.me/smartxyzbot)
 
-- A react-based TWA-ready app, interacting with TON
-- Github actions set to deploy app to github pages
-- A script to connect a telegram bot to the deployed app
+## RU
 
-# How to use
+Smart by Zyxxie - это телеграм-бот, созданный для изучения возможностей и технологий платформы Telegram. Основная цель этого проекта - обучение и экспериментирование с различными функциями Telegram, такими как боты, встроенные клавиатуры и API.
 
-1. Create a template from this repo with the "Use this template" button
+Этот бот служит песочницей для разработчиков, чтобы тестировать и реализовывать новые идеи, а также предоставляет удобный интерфейс для конечных пользователей для взаимодействия с функциями бота.
 
-   1. Choose a name for your repo
-   2. `**IMPORTANT!!**` mark "Include all branches", otherwise github pages deployment will not work.
-      ![image](https://user-images.githubusercontent.com/5641469/191731317-14e742fd-accb-47d4-a794-fad01148a377.png)
+### Ключевые особенности:
 
-2. Clone this repo and run `yarn`
+- **Модульная конструкция**: Бот построен по модульному принципу, что позволяет легко добавлять новые функции и команды.
+- **Удобный интерфейс**: Бот предоставляет чистый и интуитивно понятный интерфейс для взаимодействия пользователей с его функциями.
+- **Экспериментальный характер**: Как учебный проект, Smart by Zyxxie поощряет разработчиков экспериментировать с новыми идеями и технологиями в экосистеме Telegram.
 
-3. Create a new bot with [botfather](https://t.me/botfather)
-   1. Type `/newbot`
-   2. Choose a name for your bot, e.g. `My Ton TWA`
-   3. Choose a username for your bot, e.g. `my_ton_twa_482765_bot`
-   4. Take note of the access token, e.g. `5712441624:AAHmiHvwrrju1F3h29rlVOZLRLnv-B8ZZZ`
-   5. Run `yarn configbot` to link your bot to the webapp
+### Попробуйте бота
 
-# Development
-
-1. Run `npm run dev` and edit the code as needed
-2. On push to the `main` branch, the app will be automatically deployed via github actions.
-
-# Roadmap
-
-- [ ] Jetton transfer support
+Вы можете взаимодействовать с ботом Smart by Zyxxie здесь: [Бот Smart by Zyxxie](https://t.me/smartxyzbot)
 
 # License
 
