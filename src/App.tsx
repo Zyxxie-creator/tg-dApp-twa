@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { TonConnectButton } from "@tonconnect/ui-react";
 import { Counter } from "./components/Counter";
@@ -7,6 +8,7 @@ import styled from "styled-components";
 import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { CHAIN } from "@tonconnect/protocol";
+import LoadingScreen from "./components/LoadingScreen"; 
 import "@twa-dev/sdk";
 
 const StyledApp = styled.div`
@@ -28,26 +30,39 @@ const AppContainer = styled.div`
 
 function App() {
   const { network } = useTonConnect();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); 
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <StyledApp>
-      <AppContainer>
-        <FlexBoxCol>
-          <FlexBoxRow>
-            <TonConnectButton />
-            <Button>
-              {network
-                ? network === CHAIN.MAINNET
-                  ? "mainnet"
-                  : "testnet"
-                : "N/A"}
-            </Button>
-          </FlexBoxRow>
-          <Counter />
-          <TransferTon />
-          <Jetton />
-        </FlexBoxCol>
-      </AppContainer>
+      {isLoading ? ( 
+        <LoadingScreen />
+      ) : (
+        <AppContainer>
+          <FlexBoxCol>
+            <FlexBoxRow>
+              <TonConnectButton />
+              <Button>
+                {network
+                  ? network === CHAIN.MAINNET
+                    ? "mainnet"
+                    : "testnet"
+                  : "N/A"}
+              </Button>
+            </FlexBoxRow>
+            <Counter />
+            <TransferTon />
+            <Jetton />
+          </FlexBoxCol>
+        </AppContainer>
+      )}
     </StyledApp>
   );
 }
