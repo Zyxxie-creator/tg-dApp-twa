@@ -1197,6 +1197,8 @@ Values:
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 20px; // Отступы для мобильных устройств
+  box-sizing: border-box; // Учитываем отступы в ширине и высоте
 `,Mce=na.div`
   border: 4px solid #333;
   border-top-color: transparent;
@@ -1206,10 +1208,11 @@ Values:
   animation: spin 1s linear infinite;
   margin-top: 20px; // Отступ сверху
 `,_ce=na.img`
-  width: auto; // Ширина изображения
+  max-width: 100%; // Максимальная ширина 100% от родителя
   height: auto; // Автоматическая высота для сохранения пропорций
-  margin: 20px; // Отступ снизу
-`,Sce=()=>ni(xce,{children:[Vt(_ce,{src:wce,alt:"Загрузка..."})," ",Vt(Mce,{}),Vt("p",{children:"Загрузка..."})]}),Cce=na.div`
+  object-fit: contain; // Сохранение пропорций изображения
+  margin-bottom: 20px; // Отступ снизу
+`,Sce=()=>ni(xce,{children:[Vt(_ce,{src:wce,alt:"Загрузка..."}),Vt(Mce,{}),Vt("p",{children:"Загрузка..."})]}),Cce=na.div`
   background-color: #e8e8e8;
   color: black;
 
