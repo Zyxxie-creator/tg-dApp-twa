@@ -1747,14 +1747,18 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: black;
+  color: ${e=>e.isActive?"black":"#aaa"};
   flex-grow: 1;
+
+  &:hover {
+    background-color: transparent;
+  }
 
   svg {
     margin-bottom: 5px;
-    color: black;
+    color: inherit;
   }
-`,O1e=({currentPage:e,onPageChange:t})=>{const r=(n,a)=>{t(n),a.currentTarget.blur()};return rn(P1e,{children:[rn(L4,{onClick:n=>r(0,n),children:[Wt(qc,{icon:T1e}),"Главная"]}),rn(L4,{onClick:n=>r(1,n),children:[Wt(qc,{icon:B1e}),"Тест"]}),rn(L4,{onClick:n=>r(2,n),children:[Wt(qc,{icon:R1e}),"Друзья"]})]})},$1e="/tg-dApp-twa/assets/loadscreen-28587867.jpg",U1e=_i.div`
+`,O1e=({currentPage:e,onPageChange:t})=>{const r=(n,a)=>{t(n),a.currentTarget.blur()};return rn(P1e,{children:[rn(L4,{isActive:e===0,onClick:n=>r(0,n),children:[Wt(qc,{icon:T1e}),"Главная"]}),rn(L4,{isActive:e===1,onClick:n=>r(1,n),children:[Wt(qc,{icon:B1e}),"Тест"]}),rn(L4,{isActive:e===2,onClick:n=>r(2,n),children:[Wt(qc,{icon:R1e}),"Друзья"]})]})},$1e="/tg-dApp-twa/assets/loadscreen-28587867.jpg",U1e=_i.div`
   position: fixed;
   top: 0;
   left: 0;
